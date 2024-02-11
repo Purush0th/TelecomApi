@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Telecom.Domain.ViewModels
+namespace Telecom.Domain.Dtos
 {
     public class BeneficiaryDto
     {
@@ -15,6 +15,6 @@ namespace Telecom.Domain.ViewModels
 
         public int LastRechargeAmount { get; set; }
 
-        public DateTime? LastRechargeDate { get; set; } = default(DateTime?);
+        public DateTime? LastRechargeDate { get; set; } = default;
     }
 }

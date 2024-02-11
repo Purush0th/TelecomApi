@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace Telecom.Domain.Models
 {
-    public class Beneficiary
+    public class Beneficiary 
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }

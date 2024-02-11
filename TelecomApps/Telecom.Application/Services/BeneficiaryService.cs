@@ -4,8 +4,8 @@ using Telecom.Domain.Interfaces;
 using Telecom.Domain.Interfaces.Repositories;
 using Telecom.Domain.Models;
 using Microsoft.Extensions.Options;
-using Telecom.Domain.ViewModels;
 using AutoMapper;
+using Telecom.Domain.Dtos;
 
 namespace Telecom.Application.Services
 {
@@ -26,7 +26,7 @@ namespace Telecom.Application.Services
         {
             var count = await _beneficiaryRepo.GetBeneficiariesCoundForAccount(accountId);
 
-            if (count <= _appSettings.MaxBeneficiaryPerAccount)
+            if (count < _appSettings.MaxBeneficiaryPerAccount)
             {
                 var beneficiary = new Beneficiary { NickName = model.NickName, PhoneNumber = model.PhoneNumber };
                 var createdBeneficiary = await _beneficiaryRepo.CreateBeneficiary(beneficiary, accountId);

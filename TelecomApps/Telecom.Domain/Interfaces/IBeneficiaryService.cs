@@ -1,5 +1,7 @@
-﻿using Telecom.Domain.Models;
-using Telecom.Domain.ViewModels;
+﻿using Telecom.Domain.Dtos;
+using Telecom.Domain.Models;
+
+
 
 namespace Telecom.Domain.Interfaces
 {

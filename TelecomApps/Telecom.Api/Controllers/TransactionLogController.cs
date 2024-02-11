@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Telecom.Domain.Interfaces;
 using Telecom.Domain.Models;
-using Telecom.Domain.ViewModels;
 
 namespace Telecom.Api.Controllers
 {

@@ -29,7 +29,7 @@ namespace Telecom.Infrastructure.Repositories
             beneficiary.Account = account;
             _beneficiaryEntities.Add(beneficiary);
 
-            _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
 
             return await _beneficiaryEntities.FindAsync(beneficiary.Id);
         }

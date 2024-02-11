@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using Telecom.Domain.Dtos;
 using Telecom.Domain.Models;
-using Telecom.Domain.ViewModels;
 
 namespace Telecom.Application.Mapper
 {

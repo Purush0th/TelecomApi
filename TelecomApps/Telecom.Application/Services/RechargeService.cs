@@ -48,7 +48,7 @@ namespace Telecom.Application.Services
                 var beneficiaryAfterTopupMonthly = beneficiaryThisMonthTopUpTotal + rechargeRequest.Amount;
 
                 if (beneficiaryAfterTopupMonthly > maxTopupPerUserThisMonth)
-                    throw new Exception($"Maximum allowed recharge limit exceed for this month. Beneficiart: {beneficiaryDetails.NickName}, Total Topup: {beneficiaryDetails.TopUpTotal},  Requested TopUp: {rechargeRequest.Amount}.");
+                    throw new Exception($"Maximum allowed recharge limit exceed for this month. Beneficiary: {beneficiaryDetails.NickName}, Total Topup: {beneficiaryDetails.TopUpTotal},  Requested TopUp: {rechargeRequest.Amount}.");
 
                 if (rechargeRequest.Amount > accountAvailableCredit)
                     throw new Exception($"Not enought credit. Requested TopUp: {rechargeRequest.Amount}, Available Credit: {accountAvailableCredit}");
