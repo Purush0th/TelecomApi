@@ -8,7 +8,7 @@ using Telecom.Domain.Interfaces;
 
 
 
-namespace TelecomApps.Tests
+namespace TelecomApps.Tests.ControllersTest
 {
     public class RechargeControllerTests
     {

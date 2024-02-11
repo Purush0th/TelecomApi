@@ -2,7 +2,7 @@
 using Telecom.Domain.Dtos;
 using TelecomApps.Tests.Fixtures;
 
-namespace TelecomApps.Tests
+namespace TelecomApps.Tests.ServicesTest
 {
     public class BeneficiaryServiceTests : IClassFixture<BeneficiaryServiceTestFixture>
     {

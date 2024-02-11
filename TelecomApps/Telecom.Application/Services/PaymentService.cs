@@ -15,7 +15,7 @@ namespace Telecom.Infrastructure.Services
             _stripebalanceService = stripebalanceService;
             _chargeService = chargeService;
         }
-        public async Task<Tuple<bool, string, string>> Charge(long amount)
+        public async Task<Tuple<bool, string, string, long>> Charge(long amount)
         {
 
             try
@@ -41,11 +41,11 @@ namespace Telecom.Infrastructure.Services
                 };
                 var tokenResponse = _stripeTokenService.Create(tokenOptions);
 
-
+                var amountToCharge = amount + 1;
 
                 var chargeOptions = new ChargeCreateOptions
                 {
-                    Amount = amount + 1,
+                    Amount = amountToCharge,
                     Currency = "aed",
                     Source = $"{tokenResponse.Id}",
                     Description = "Test Payment"
@@ -53,12 +53,12 @@ namespace Telecom.Infrastructure.Services
 
                 var status = _chargeService.Create(chargeOptions);
 
-                return new Tuple<bool, string, string>(status.Paid, status.TransferId, status.FailureMessage);
+                return new Tuple<bool, string, string, long>(status.Paid, status.TransferId, status.FailureMessage, amountToCharge);
             }
             catch (Exception ex)
             {
                 // at this moment we are returning `success` even on payment failures
-                return new Tuple<bool, string, string>(true, Guid.NewGuid().ToString(), ex.Message);
+                return new Tuple<bool, string, string, long>(true, Guid.NewGuid().ToString(), ex.Message, 0);
             }
         }
     }
